@@ -23,3 +23,6 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# TODO: Recieve bookings from form
+# TODO: Add alerts for whether booking succeeded
