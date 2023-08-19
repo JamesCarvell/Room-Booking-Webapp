@@ -3,13 +3,6 @@
 
 {% block content %}
 
-<!-- TODO: Receive calendar data to populate carousel and replace placeholder calendar-->
-<!-- TODO: Receive booking data, and colour code calendar accordingly -->
-<!-- TODO: Add a legend and/or hover text to calendar to indicate meaning of different colors-->
-<!-- TODO: Make calendar interactable as an alternative to using the form-->
-<!-- TODO: Prevent fully booked dates from being selectable-->
-<!-- TODO: Improve the page layout/style -->
-
 <div id="user-fields">
   {{ wtf.quick_form(booking, novalidate=True, button_map={"submit": "primary"}) }}
 </div>
@@ -17,56 +10,18 @@
 <div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    {% for month in calendar %}
+    <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active"{% endif %}></li>
+    {% endfor %}
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
-      <table border="0" cellpadding="0" cellspacing="0" class="month">
-        <tr><th colspan="7" class="month">March 2023</th></tr>
-        <tr><th class="mon">Mon</th><th class="tue">Tue</th><th class="wed">Wed</th><th class="thu">Thu</th><th class="fri">Fri</th><th class="sat">Sat</th><th class="sun">Sun</th></tr>
-        <tr><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="wed">1</td><td class="thu">2</td><td class="fri">3</td><td class="sat">4</td><td class="sun">5</td></tr>
-        <tr><td class="mon">6</td><td class="tue">7</td><td class="wed">8</td><td class="thu">9</td><td class="fri">10</td><td class="sat">11</td><td class="sun">12</td></tr>
-        <tr><td class="mon">13</td><td class="tue">14</td><td class="wed">15</td><td class="thu">16</td><td class="fri">17</td><td class="sat">18</td><td class="sun">19</td></tr>
-        <tr><td class="mon">20</td><td class="tue">21</td><td class="wed">22</td><td class="thu">23</td><td class="fri">24</td><td class="sat">25</td><td class="sun">26</td></tr>
-        <tr><td class="mon">27</td><td class="tue">28</td><td class="wed">29</td><td class="thu">30</td><td class="fri">31</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td></tr>
-      </table>
-      <div class="carousel-caption">
-      	<h3>Caption Text</h3>
-      </div>
+    {% for month in calendar %}
+    <div class="item {% if loop.first %}active{% endif %}">
+      {{ month|safe }}
     </div>
-    <div class="item">
-      <table border="0" cellpadding="0" cellspacing="0" class="month">
-        <tr><th colspan="7" class="month">April 2023</th></tr>
-        <tr><th class="mon">Mon</th><th class="tue">Tue</th><th class="wed">Wed</th><th class="thu">Thu</th><th class="fri">Fri</th><th class="sat">Sat</th><th class="sun">Sun</th></tr>
-        <tr><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="sat">1</td><td class="sun">2</td></tr>
-        <tr><td class="mon">3</td><td class="tue">4</td><td class="wed">5</td><td class="thu">6</td><td class="fri">7</td><td class="sat">8</td><td class="sun">9</td></tr>
-        <tr><td class="mon">10</td><td class="tue">11</td><td class="wed">12</td><td class="thu">13</td><td class="fri">14</td><td class="sat">15</td><td class="sun">16</td></tr>
-        <tr><td class="mon">17</td><td class="tue">18</td><td class="wed">19</td><td class="thu">20</td><td class="fri">21</td><td class="sat">22</td><td class="sun">23</td></tr>
-        <tr><td class="mon">24</td><td class="tue">25</td><td class="wed">26</td><td class="thu">27</td><td class="fri">28</td><td class="sat">29</td><td class="sun">30</td></tr>
-      </table>
-      <div class="carousel-caption">
-      	<h3>Caption Text</h3>
-      </div>
-    </div>
-    <div class="item">
-      <table border="0" cellpadding="0" cellspacing="0" class="month">
-        <tr><th colspan="7" class="month">May 2023</th></tr>
-        <tr><th class="mon">Mon</th><th class="tue">Tue</th><th class="wed">Wed</th><th class="thu">Thu</th><th class="fri">Fri</th><th class="sat">Sat</th><th class="sun">Sun</th></tr>
-        <tr><td class="mon">1</td><td class="tue">2</td><td class="wed">3</td><td class="thu">4</td><td class="fri">5</td><td class="sat">6</td><td class="sun">7</td></tr>
-        <tr><td class="mon">8</td><td class="tue">9</td><td class="wed">10</td><td class="thu">11</td><td class="fri">12</td><td class="sat">13</td><td class="sun">14</td></tr>
-        <tr><td class="mon">10</td><td class="tue">11</td><td class="wed">12</td><td class="thu">13</td><td class="fri">14</td><td class="sat">15</td><td class="sun">21</td></tr>
-        <tr><td class="mon">17</td><td class="tue">18</td><td class="wed">19</td><td class="thu">20</td><td class="fri">21</td><td class="sat">22</td><td class="sun">28</td></tr>
-        <tr><td class="mon">29</td><td class="tue">30</td><td class="wed">31</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td></tr>
-      </table>
-      <div class="carousel-caption">
-      	<h3>Caption Text</h3>
-      </div>
-    </div>
-  </div>
+    {% endfor %}
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
