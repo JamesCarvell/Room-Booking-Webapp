@@ -2,9 +2,12 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
-
 <div id="user-fields">
   {{ wtf.quick_form(booking, novalidate=True, button_map={"submit": "primary"}) }}
+</div>
+
+<div>
+  {{ unavailable }}
 </div>
 
 <div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
