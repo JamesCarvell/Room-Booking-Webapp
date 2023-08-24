@@ -2,6 +2,9 @@
   "room01": {
     "20230904": [
       "test2@blah.org", 1
+    ],
+    "20230905": [
+      "test3@blah.org", 1
     ]
   },
   "room03": {
@@ -12,6 +15,11 @@
   "room06": {
     "20230903": [
       "other@ymail.ca", 4
+    ]
+  },
+  "room09": {
+    "20230929": [
+      "example@hotmail.com", 7
     ]
   },
   "room10": {
