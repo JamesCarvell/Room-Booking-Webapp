@@ -19,21 +19,34 @@ def create_new_booking(database, new_booking):
 
 
 def expand_bookings(database) -> list:
+    "convert bookings json data of first date of booking and number of nights booked to a list of date strings"
     expanded_bookings = []
     bookings_dict = read_bookings(database)
     for room in bookings_dict.keys():
-        for booking_date in bookings_dict[room].keys():
-            for day in range(bookings_dict[room][booking_date][1]):
-                year = booking_date[:4]
-                month = booking_date[4:6]
-                day = booking_date[6:]
-                expanded_bookings.append(datetime.date(booking_date) + datetime.timedelta(days=day))
+        for first_date_of_booking in bookings_dict[room].keys():
+            for previous_days_of_booking in range(bookings_dict[room][first_date_of_booking][1]):
+                date_of_booking = datetime.date.fromisoformat(first_date_of_booking) + datetime.timedelta(days=previous_days_of_booking)
+                expanded_bookings.append((date_of_booking.strftime("%B %Y"), str(int(date_of_booking.strftime("%d")))))
     return expanded_bookings
 
 
-def room_availability(expanded_bookings: list, room_count: int) -> list:
+def room_availability(expanded_bookings: list, room_count: int) -> dict:
     count_by_date = collections.Counter(expanded_bookings)
-    unavailable = [booking_date for booking_date in count_by_date.keys() if count_by_date[booking_date] >= room_count]
-    return(unavailable)
+    unavailable_list = [date for date in count_by_date.keys() if count_by_date[date] >= room_count]
+    unavailable_dict = {}
+    for date in unavailable_list:
+        unavailable_dict.setdefault(date[0],[]).append(date[1])
+    return(unavailable_dict)
 
-print(expand_bookings("db.json"))
+
+# def list_past_dates():
+#     past_dates = {}
+#     current_date = datetime.date.today()
+#     current_month = current_date.month
+#     one_day = datetime.timedelta(days=1)
+#     while current_date.month == current_month:
+#         current_date -= one_day
+#         past_dates.update(current_date.)
+    
+
+# print(room_availability(expand_bookings("db.json"),4))

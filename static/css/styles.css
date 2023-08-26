@@ -5,3 +5,11 @@ body {
 .carousel-inner table {
   margin: auto;
 }
+
+.past {
+  color: grey;
+}
+
+.unavailable {
+  color: red;
+}
