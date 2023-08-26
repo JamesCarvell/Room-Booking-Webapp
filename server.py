@@ -19,8 +19,10 @@ Bootstrap(app)
 def index():
     booking = BookingForm()
     calendar = calendar_builder.generate_calendar(SEE_MONTHS_IN_ADVANCE)
-    unavailable = bookings.room_availability(bookings.expand_bookings("db.json"),ROOM_COUNT)
+    unavailable = bookings.check_room_availability(bookings.expand_bookings("db.json"),ROOM_COUNT)
     calendar = calendar_builder.add_html_class_by_date(calendar, unavailable, "unavailable")
+    past = bookings.collect_past_dates()
+    calendar = calendar_builder.add_html_class_by_date(calendar, past, "past")
     # Old code from new_booking when it was a script. Use in booking form.
     # email = input("email?: ")
     # date = input("first night?(yyyymmdd): ")

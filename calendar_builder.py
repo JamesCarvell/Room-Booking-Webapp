@@ -41,6 +41,6 @@ def add_html_class_by_date(html_calendar_months: list, dates: dict, added_class:
 
 # import bookings
 # calendar = generate_calendar(12)
-# unavailable = bookings.room_availability(bookings.expand_bookings("db.json"),4)
+# unavailable = bookings.check_room_availability(bookings.expand_bookings("db.json"),4)
 # new_html_cal = add_html_class_by_date(calendar, unavailable, "unavailable")
 # print(new_html_cal)
