@@ -6,10 +6,6 @@
   {{ wtf.quick_form(booking, novalidate=True, button_map={"submit": "primary"}) }}
 </div>
 
-<div>
-  {{ unavailable }}
-</div>
-
 <div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -25,6 +21,7 @@
       {{ month|safe }}
     </div>
     {% endfor %}
+  </div>
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -34,4 +31,6 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div> <!-- Carousel -->
+
+<script src="{{url_for('static', filename='js/calendar_script.js')}}" charset="utf-8"></script>
 {% endblock %}
