@@ -30,23 +30,21 @@ def expand_bookings(database) -> list:
     return expanded_bookings
 
 
-def room_availability(expanded_bookings: list, room_count: int) -> dict:
+def check_room_availability(expanded_bookings: list, room_count: int) -> dict:
     count_by_date = collections.Counter(expanded_bookings)
     unavailable_list = [date for date in count_by_date.keys() if count_by_date[date] >= room_count]
     unavailable_dict = {}
     for date in unavailable_list:
         unavailable_dict.setdefault(date[0],[]).append(date[1])
-    return(unavailable_dict)
+    return unavailable_dict
 
 
-# def list_past_dates():
-#     past_dates = {}
-#     current_date = datetime.date.today()
-#     current_month = current_date.month
-#     one_day = datetime.timedelta(days=1)
-#     while current_date.month == current_month:
-#         current_date -= one_day
-#         past_dates.update(current_date.)
+def collect_past_dates():
+    current_date = datetime.date.today()
+    current_day = current_date.day
+    key = current_date.strftime("%B %Y")
+    past_dates = {key: list(range(1, current_day))}
+    return past_dates
     
 
 # print(room_availability(expand_bookings("db.json"),4))
