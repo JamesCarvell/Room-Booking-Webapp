@@ -5,6 +5,6 @@ from wtforms.validators import DataRequired
 
 class BookingForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()])
-    date = StringField("Date", validators=[DataRequired()])
-    duration = StringField("# of Night", validators=[DataRequired()])
+    start_date = StringField("Start Date", validators=[DataRequired()])
+    end_date = StringField("End Date", validators=[DataRequired()])
     submit = SubmitField("Book Me!")

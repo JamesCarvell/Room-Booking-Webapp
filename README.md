@@ -1,7 +1,7 @@
 # room-booking-app
 calendar view web app that lets users book a room and remembers which rooms are booked
 
-Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("example@hotmail.com", number of nights booked)}}
+Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("example@hotmail.com", number_of_nights_booked)}}
 
 ## To Do:
 
@@ -11,14 +11,10 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 ### server.py
 * pass new booking from index.html to db.json
 
-### bookings.py
-* add .past html class to calendar days before today
-
 ### calendar_script.js
-* Make calendar interactable as an alternative to using the form
-* Prevent unavailable & past dates from being selectable
+* Store actual date data in startDate and endDate variables, as well as form input, when selecting dates on calendar
 * Add hover text to calendar for unavailable/past days
-* Add alerts for whether booking succeeds
+* Add alerts for whether booking succeeds, and when a range of dates with an included unavailable date is selected
 
 ### index.html
 * Take form data from BookingForm and create a new booking
