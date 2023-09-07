@@ -5,11 +5,12 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 
 ## To Do:
 
-### forms.py
-* add proper validators & fields for variables instead of all StringField
+* Prevent booking if includes unavailable dates
+* Choose a room for booking & shuffle future bookings if needed
+* Change duration to not include start date (one night stay duration = 0)
 
-### server.py
-* pass new booking from index.html to db.json
+### forms.py
+* Add proper validators & fields for variables instead of all StringField
 
 ### calendar_script.js
 * Add inner-date css class to dates between start and end date
@@ -17,7 +18,6 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 * Add alerts for whether booking succeeds, and when a range of dates with an included unavailable date is selected
 
 ### index.html
-* Take form data from BookingForm and create a new booking
 * Improve the page layout/style
     * Fix carousel indicator overlap with caledar
     * Change carousel to show multiple months for large displays
