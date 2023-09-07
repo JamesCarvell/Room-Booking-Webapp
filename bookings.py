@@ -14,8 +14,12 @@ def read_bookings(database) -> dict:
 def create_new_booking(database, new_booking):
     with open(database, "r+", encoding="utf-8") as db:
         data = json.load(db)
-        data.update(new_booking)
+        booking_room_key = next(iter(new_booking))
+        booking_date_key = next(iter(new_booking[booking_room_key]))
+        data[booking_room_key][booking_date_key] = new_booking[booking_room_key][booking_date_key]
+        db.seek(0)
         json.dump(data, db, indent=2)
+        db.truncate()
 
 
 def expand_bookings(database) -> list:

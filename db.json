@@ -1,30 +1,40 @@
 {
   "room01": {
     "2023-09-04": [
-      "test2@blah.org", 1
+      "test2@blah.org",
+      1
     ],
     "2023-09-05": [
-      "test3@blah.org", 1
+      "test3@blah.org",
+      1
     ]
   },
   "room03": {
     "2023-09-01": [
-      "test1@blah.org", 6
+      "test1@blah.org",
+      6
     ]
   },
   "room06": {
     "2023-09-03": [
-      "other@ymail.ca", 4
+      "other@ymail.ca",
+      4
+    ],
+    "2023-09-07": [
+      "test4@gmail.com",
+      3
     ]
   },
   "room09": {
     "2023-09-29": [
-      "example@hotmail.com", 7
+      "example@hotmail.com",
+      7
     ]
   },
   "room10": {
     "2023-09-04": [
-      "example@hotmail.com", 7
+      "example@hotmail.com",
+      7
     ]
   }
 }
