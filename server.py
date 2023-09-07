@@ -28,7 +28,7 @@ def index():
     # date = input("first night?(yyyymmdd): ")
     # dur = int(input("how many nights?: "))
     # new_booking = {date: {"room06": [email, dur]}}
-    return flask.render_template("index.html", booking=booking, calendar=calendar)
+    return flask.render_template("index.html", booking=booking, calendar=calendar, unavailable=unavailable)
 
 
 if __name__ == "__main__":

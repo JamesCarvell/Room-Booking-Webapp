@@ -13,3 +13,15 @@ body {
 .past {
   color: grey;
 }
+
+.start-date {
+  color: pink;
+}
+
+.end-date {
+  color: purple;
+}
+
+.inner-date {
+  color: fuchsia;
+}
