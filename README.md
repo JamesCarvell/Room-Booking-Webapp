@@ -12,7 +12,7 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 * pass new booking from index.html to db.json
 
 ### calendar_script.js
-* Store actual date data in startDate and endDate variables, as well as form input, when selecting dates on calendar
+* Add inner-date css class to dates between start and end date
 * Add hover text to calendar for unavailable/past days
 * Add alerts for whether booking succeeds, and when a range of dates with an included unavailable date is selected
 
