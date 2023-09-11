@@ -51,4 +51,4 @@ def collect_past_dates():
     return past_dates
     
 
-# print(room_availability(expand_bookings("db.json"),4))
+# print(check_room_availability(expand_bookings("db.json"),4))

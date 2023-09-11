@@ -5,7 +5,6 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 
 ## To Do:
 
-* Prevent booking if includes unavailable dates
 * Choose a room for booking & shuffle future bookings if needed
 * Change duration to not include start date (one night stay duration = 0)
 
@@ -15,7 +14,6 @@ Using a json file as a database for now. format: {"room_name":{"yyyy-mm-dd":("ex
 ### calendar_script.js
 * Add inner-date css class to dates between start and end date
 * Add hover text to calendar for unavailable/past days
-* Add alerts for whether booking succeeds, and when a range of dates with an included unavailable date is selected
 
 ### index.html
 * Improve the page layout/style

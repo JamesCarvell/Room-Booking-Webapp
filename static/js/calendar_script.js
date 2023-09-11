@@ -58,7 +58,8 @@ for (let i = 0; i<numberOfDateCells; i++) {
             // for (let j = 1; j<startEndDelta; j++) {
             //     let innerDate = startDate + j
             //     for (let k = 0; k<numberOfMonths; k++) {
-            //         arrayOfMonths[k];
+            //         let currentMonth = arrayOfMonths[k];
+
             //         // add inner-date css class
             //     }
             // }

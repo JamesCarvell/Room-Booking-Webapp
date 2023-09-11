@@ -2,8 +2,19 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
 <div id="user-fields">
-  {{ wtf.quick_form(booking, novalidate=True, button_map={"submit": "primary"}) }}
+  {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
 </div>
 
 <div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
